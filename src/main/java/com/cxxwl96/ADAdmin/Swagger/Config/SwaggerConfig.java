@@ -14,7 +14,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@PropertySource(value = {"classpath:swagger-config.properties"}, encoding = "utf-8")
+@PropertySource(value = {"classpath:SwaggerConfig.properties"}, encoding = "utf-8")
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
