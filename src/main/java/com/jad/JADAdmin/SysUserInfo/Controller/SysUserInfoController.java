@@ -1,7 +1,7 @@
-package com.jad.JADAdmin.SystemUserInfo.Controller;
+package com.jad.JADAdmin.SysUserInfo.Controller;
 
-import com.jad.JADAdmin.SystemUserInfo.Mapper.SysUserInfoMapper;
-import com.jad.JADAdmin.SystemUserInfo.Model.SysUserInfo;
+import com.jad.JADAdmin.SysUserInfo.Mapper.SysUserInfoMapper;
+import com.jad.JADAdmin.SysUserInfo.Model.SysUserInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,12 +13,12 @@ import java.util.List;
 
 @Api(tags = "用户管理相关接口")
 @RestController
-@RequestMapping("SystemUserInfo")
+@RequestMapping("SysUserInfo")
 public class SysUserInfoController {
     @Resource
     private SysUserInfoMapper sysUserInfo;
 
-    @ApiOperation("添加用户的接口")
+    @ApiOperation("添加用户接口")
     @GetMapping("test")
     public List<SysUserInfo> test(){
         List<SysUserInfo> list = sysUserInfo.get();

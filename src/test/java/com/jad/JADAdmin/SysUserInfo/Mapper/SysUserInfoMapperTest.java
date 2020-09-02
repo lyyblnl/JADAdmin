@@ -1,7 +1,7 @@
-package com.jad.JADAdmin.SystemUserInfo.Mapper;
+package com.jad.JADAdmin.SysUserInfo.Mapper;
 
 
-import com.jad.JADAdmin.SystemUserInfo.Model.SysUserInfo;
+import com.jad.JADAdmin.SysUserInfo.Model.SysUserInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

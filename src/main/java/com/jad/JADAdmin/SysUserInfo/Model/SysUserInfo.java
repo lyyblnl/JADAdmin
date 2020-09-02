@@ -1,6 +1,5 @@
-package com.jad.JADAdmin.SystemUserInfo.Model;
+package com.jad.JADAdmin.SysUserInfo.Model;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.jad.JADAdmin.Common.Model.EntityBase;
 import io.swagger.annotations.ApiModel;
