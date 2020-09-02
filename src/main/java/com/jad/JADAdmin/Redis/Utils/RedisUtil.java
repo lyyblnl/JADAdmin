@@ -1,4 +1,4 @@
-package com.cxxwl96.ADAdmin.Redis.Utils;
+package com.jad.JADAdmin.Redis.Utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundListOperations;

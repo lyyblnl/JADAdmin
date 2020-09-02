@@ -8,13 +8,13 @@ server:
 # Spring Configuration
 spring:
   application:
-    name: ADAdmin
+    name: JADAdmin
   profiles:
     active: dev # 环境设置：dev、test、prod
   datasource:
-    url: jdbc:postgresql://localhost:5432/ADAdmin?currentSchema=public
+    url: jdbc:postgresql://114.55.143.66:5432/postgres?currentSchema=public
     username: postgres
-    password: root
+    password: cxxwl96@sina.com
     driver-class-name: org.postgresql.Driver
     dbcp2:
       max-idle: 10
@@ -44,7 +44,7 @@ spring:
 
 # MyBatis-plus Configuration
 mybatis-plus:
-  mapper-locations: classpath*:com/cxxwl96/ADAdmin/**/Mapper/xml/*.xml # 配置mapper xml文件的路径
+  mapper-locations: classpath*:com/jad/JADAdmin/**/Mapper/xml/*.xml # 配置mapper xml文件的路径
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # mybatis日志
 

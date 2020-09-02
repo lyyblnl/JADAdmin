@@ -1,4 +1,4 @@
-package com.cxxwl96.ADAdmin.Swagger.Config;
+package com.jad.JADAdmin.Swagger.Config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;

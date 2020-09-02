@@ -1,4 +1,4 @@
-package com.cxxwl96.ADAdmin.Redis.Utils;
+package com.jad.JADAdmin.Redis.Utils;
 
 import java.util.concurrent.TimeUnit;
 

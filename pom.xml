@@ -8,11 +8,11 @@
         <version>2.3.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.cxxwl96</groupId>
-    <artifactId>ad-admin</artifactId>
+    <groupId>com.jad</groupId>
+    <artifactId>JADAdmin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ADAdmin</name>
-    <description>ADAdmin project for Spring Boot</description>
+    <name>JADAdmin</name>
+    <description>JADAdmin project for Spring Boot</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -1,4 +1,4 @@
-package com.cxxwl96.ADAdmin.Redis.Config;
+package com.jad.JADAdmin.Redis.Config;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;

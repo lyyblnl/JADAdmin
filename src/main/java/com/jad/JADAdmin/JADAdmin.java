@@ -1,15 +1,15 @@
-package com.cxxwl96.ADAdmin;
+package com.jad.JADAdmin;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan({"com.cxxwl96.ADAdmin.*.Mapper"})
-public class ADAdminApplication {
+@MapperScan({"com.jad.JADAdmin.*.Mapper"})
+public class JADAdmin {
 
     public static void main(String[] args) {
-        SpringApplication.run(ADAdminApplication.class, args);
+        SpringApplication.run(JADAdmin.class, args);
     }
 
 }
