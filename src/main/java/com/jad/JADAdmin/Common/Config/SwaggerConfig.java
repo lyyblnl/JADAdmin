@@ -1,4 +1,4 @@
-package com.jad.JADAdmin.Swagger.Config;
+package com.jad.JADAdmin.Common.Config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,6 +14,9 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * swagger 配置类
+ */
 @PropertySource(value = {"classpath:SwaggerConfig.properties"}, encoding = "utf-8")
 @Configuration
 @EnableSwagger2

@@ -1,4 +1,4 @@
-package com.jad.JADAdmin.Redis.Config;
+package com.jad.JADAdmin.Common.Config;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -13,7 +13,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * redis配置类
+ * Redis 配置类
  */
 @Configuration
 @EnableCaching // 开启注解

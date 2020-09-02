@@ -23,7 +23,7 @@ public class SysUserInfo extends EntityBase {
     @ApiModelProperty(value = "性别")
     private Sex sex;
     @ApiModelProperty(value = "年龄")
-    private int age;
+    private Integer age;
     @ApiModelProperty(value = "出生日期")
     private Timestamp birthday;
     @ApiModelProperty(value = "邮箱")

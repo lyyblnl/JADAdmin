@@ -1,6 +1,6 @@
 package com.jad.JADAdmin.Common.Model;
 
-import com.baomidou.mybatisplus.annotation.TableField;
+import com.jad.JADAdmin.Common.Utils.DateUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -23,8 +23,4 @@ public class EntityBase extends EntityRoot {
     private String updateBy;
     @ApiModelProperty(value = "逻辑删除【未删除：true，已删除：false】")
     private Boolean enable;
-
-    public EntityBase() {
-        this.createTime = new Timestamp(System.currentTimeMillis());
-    }
 }
