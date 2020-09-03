@@ -1,21 +1,24 @@
 package com.jad.JADAdmin.Common.Model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.ToString;
 import org.springframework.stereotype.Component;
 
-/**
- * 请求结果模型
- * @param <T>
- */
+@ApiModel(value = "请求结果模型")
 @Component
-public class JsonResult<T> {
-    /*返回代码*/
+@ToString
+public class JsonResult {
+    @ApiModelProperty(value = "返回代码")
     public String code = "";
-    /*请求状态*/
+    @ApiModelProperty(value = "请求状态")
     public boolean success = false;
-    /*返回消息*/
+    @ApiModelProperty(value = "返回消息")
     public String msg = "请求失败";
-    /*返回数据*/
-    public T data;
-    /*重定向url*/
+    @ApiModelProperty(value = "返回数据")
+    public Object data;
+    @ApiModelProperty(value = "重定向url")
     public String url;
+    @ApiModelProperty(value = "查询对象")
+    public SearchLayer search;
 }

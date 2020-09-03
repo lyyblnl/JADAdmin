@@ -1,10 +1,14 @@
 package com.jad.JADAdmin.SysUserInfo.Model;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.jad.JADAdmin.Common.Enum.Sex;
 import com.jad.JADAdmin.Common.Model.EntityBase;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import java.sql.Timestamp;
 
 @ApiModel(value = "系统用户实体")
 @Data
@@ -17,11 +21,11 @@ public class SysUserInfo extends EntityBase {
     @ApiModelProperty(value = "姓名")
     private String names;
     @ApiModelProperty(value = "性别")
-    private String sex;
+    private Sex sex;
     @ApiModelProperty(value = "年龄")
-    private String age;
+    private int age;
     @ApiModelProperty(value = "出生日期")
-    private String birthday;
+    private Timestamp birthday;
     @ApiModelProperty(value = "邮箱")
     private String email;
     @ApiModelProperty(value = "电话")
