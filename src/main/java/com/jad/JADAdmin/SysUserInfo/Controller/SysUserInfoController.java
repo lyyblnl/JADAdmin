@@ -15,14 +15,12 @@ import java.util.List;
 @RestController
 @RequestMapping("SysUserInfo")
 public class SysUserInfoController {
-    @Resource
-    private SysUserInfoMapper sysUserInfo;
 
     @ApiOperation("添加用户接口")
     @GetMapping("test")
     public List<SysUserInfo> test(){
-        List<SysUserInfo> list = sysUserInfo.get();
 
-        return list;
+
+        return null;
     }
 }

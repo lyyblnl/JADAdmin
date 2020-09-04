@@ -12,12 +12,12 @@ import lombok.Data;
  */
 @ApiModel(value = "实体根类")
 @Data
-public class EntityRoot {
+public class RootEntity {
     @ApiModelProperty(value = "主键id")
     @TableId(type = IdType.ASSIGN_UUID)
     private String id;
 
-    public EntityRoot() {
+    public RootEntity() {
         this.id = UUIDUtil.getUUID();
     }
 }

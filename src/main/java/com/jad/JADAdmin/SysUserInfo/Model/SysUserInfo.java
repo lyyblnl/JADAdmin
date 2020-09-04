@@ -1,9 +1,8 @@
 package com.jad.JADAdmin.SysUserInfo.Model;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.jad.JADAdmin.Common.Enum.Sex;
-import com.jad.JADAdmin.Common.Model.EntityBase;
+import com.jad.JADAdmin.Common.Model.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -13,7 +12,7 @@ import java.sql.Timestamp;
 @ApiModel(value = "系统用户实体")
 @Data
 @TableName("sys_user_info")
-public class SysUserInfo extends EntityBase {
+public class SysUserInfo extends BaseEntity {
     @ApiModelProperty(value = "账号")
     private String account;
     @ApiModelProperty(value = "密码")

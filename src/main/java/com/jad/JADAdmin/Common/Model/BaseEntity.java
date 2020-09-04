@@ -1,6 +1,5 @@
 package com.jad.JADAdmin.Common.Model;
 
-import com.jad.JADAdmin.Common.Utils.DateUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -12,7 +11,7 @@ import java.sql.Timestamp;
  */
 @ApiModel(value = "实体基类")
 @Data
-public class EntityBase extends EntityRoot {
+public class BaseEntity extends RootEntity {
     @ApiModelProperty(value = "创建时间")
     private Timestamp createTime;
     @ApiModelProperty(value = "创建人")

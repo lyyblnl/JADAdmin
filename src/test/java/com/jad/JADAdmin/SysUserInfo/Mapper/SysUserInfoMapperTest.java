@@ -18,9 +18,5 @@ public class SysUserInfoMapperTest {
 
     @Test
     public void get() {
-        List<SysUserInfo> users = mapper.get();
-        for (SysUserInfo user : users) {
-            System.out.println(user);
-        }
     }
 }
