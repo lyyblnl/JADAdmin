@@ -36,7 +36,7 @@ public class BaseService<T> implements BaseServiceInterface<T> {
         // TODO: 添加createBy
         // kw.put("createBy", "ce47775e95a3499e86ca191c3aaa6c87");
         boolean success = EntityUtil.setFieldsValue(entity, kw);
-        if(!success){
+        if (!success) {
             return 0;
         }
         return mapper.insert(entity);
@@ -79,7 +79,7 @@ public class BaseService<T> implements BaseServiceInterface<T> {
         // TODO: 添加updateBy
         // kw.put("updateBy", "ce47775e95a3499e86ca191c3aaa6c87");
         boolean success = EntityUtil.setFieldsValue(entity, kw);
-        if(!success){
+        if (!success) {
             return 0;
         }
         return mapper.updateById(entity);
