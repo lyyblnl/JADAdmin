@@ -20,7 +20,6 @@ import java.util.Map;
 public class BaseService<T> implements BaseServiceInterface<T> {
     @Resource
     private JsonResult result;
-    @Resource
     public BaseMapper<T> mapper;
 
     /**
