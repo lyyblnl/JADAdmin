@@ -11,21 +11,21 @@ import java.util.Map;
 public class ModelUtil {
 
     /**
-     * 给obj对象的字段设置值
+     * 给obj对象的属性设置值
      *
      * @param obj 对象
-     * @param kw  key-字段名，value-字段值
+     * @param kw  key-属性名，value-字段值
      * @return 是否全部设置成功
      */
     public static boolean setFieldsValue(Object obj, Map<String, Object> kw) {
         if (obj == null || kw == null || kw.size() == 0) {
             return false;
         }
-        // 所有字段是否设值成功
+        // 所有需要设值的属性是否设值成功
         boolean flag = true;
         try {
             Class entityClass = obj.getClass();
-            // 得到所有字段，包括父类以及私有字段
+            // 得到所有属性，包括父类以及私有字段
             Field[] fields = FieldUtils.getAllFields(entityClass);
             // 遍历所需要设置的字段
             for (Map.Entry<String, Object> entry : kw.entrySet()) {

@@ -11,10 +11,10 @@ public interface SysUserInfoService {
     /**
      * 添加用户
      *
-     * @param sysUserInfo 用户信息
+     * @param entity 用户信息
      * @return 执行结果
      */
-    JsonResult create(SysUserInfo sysUserInfo);
+    JsonResult create(SysUserInfo entity);
 
     /**
      * 删除用户
@@ -35,10 +35,10 @@ public interface SysUserInfoService {
     /**
      * 修改用户
      *
-     * @param sysUserInfo 用户信息
+     * @param entity 用户信息
      * @return 执行结果
      */
-    JsonResult edit(SysUserInfo sysUserInfo);
+    JsonResult edit(SysUserInfo entity);
 
     /**
      * 分页获取用户

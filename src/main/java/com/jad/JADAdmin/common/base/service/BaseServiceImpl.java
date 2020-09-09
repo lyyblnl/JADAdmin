@@ -4,14 +4,14 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.jad.JADAdmin.common.base.mapper.BaseMapper;
 import com.jad.JADAdmin.common.model.JsonResult;
 import com.jad.JADAdmin.common.model.SearchLayer;
 import com.jad.JADAdmin.common.utils.DateUtil;
 import com.jad.JADAdmin.common.utils.ModelUtil;
-import com.jad.JADAdmin.common.base.mapper.BaseMapper;
+import com.jad.JADAdmin.common.utils.StringUtil;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -82,6 +82,40 @@ public class BaseServiceImpl<T, M extends BaseMapper<T>> extends ServiceImpl<M, 
     }
 
     /**
+     * 根据id修改数据
+     * - 修改指定字段
+     * - fields 指定字段 - 每个字段由英文或中文“,”分隔。格式："field1,field2,field3"。
+     *
+     * @param entity 数据实体
+     * @param fields 指定字段
+     * @return 影响行数
+     */
+    @Override
+    public int update(T entity, String fields) {
+        return 0;
+    }
+
+    /**
+     * 根据id修改数据
+     * - 修改指定字段
+     *
+     * @param entity 数据实体
+     * @param fields 指定字段数组
+     * @return 影响行数
+     */
+    @Override
+    public int update(T entity, String[] fields) {
+
+        for (String field : fields) {
+            if (!StringUtil.isNullOrEmpty(field)) {
+                continue;
+            }
+            // TODO：判断实体里面是否存在某个属性
+        }
+        return 0;
+    }
+
+    /**
      * 分页查询
      *
      * @param search 分页参数
@@ -89,7 +123,7 @@ public class BaseServiceImpl<T, M extends BaseMapper<T>> extends ServiceImpl<M, 
      */
     @Override
     public JsonResult getPageResult(SearchLayer search) {
-        JsonResult result = new JsonResult();
+        JsonResult result = new JsonResult("查询失败");
         IPage<T> iPage = getIPage(search);
         List<T> data = iPage.getRecords();
         search.count = data.size();
@@ -100,8 +134,6 @@ public class BaseServiceImpl<T, M extends BaseMapper<T>> extends ServiceImpl<M, 
             result.data = data;
             result.msg = "查询成功";
             result.success = true;
-        } else {
-            result.msg = "查询失败";
         }
         return result;
     }

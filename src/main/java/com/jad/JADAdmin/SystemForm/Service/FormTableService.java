@@ -11,10 +11,10 @@ public interface FormTableService {
     /**
      * 添加表单
      *
-     * @param formTable 表单信息
+     * @param entity 表单信息
      * @return 执行结果
      */
-    JsonResult create(FormTable formTable);
+    JsonResult create(FormTable entity);
 
     /**
      * 删除表单
@@ -35,10 +35,10 @@ public interface FormTableService {
     /**
      * 修改表单
      *
-     * @param formTable 表单信息
+     * @param entity 表单信息
      * @return 执行结果
      */
-    JsonResult edit(FormTable formTable);
+    JsonResult edit(FormTable entity);
 
     /**
      * 分页获取表单

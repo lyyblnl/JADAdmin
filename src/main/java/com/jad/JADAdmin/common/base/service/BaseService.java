@@ -33,12 +33,34 @@ public interface BaseService<T> extends IService<T> {
     int deleteArray(String[] ids);
 
     /**
-     * 修改数据
+     * 根据id修改数据
+     * - 修改实体属性有值的字段
      *
      * @param entity 数据实体
      * @return 影响行数
      */
     int update(T entity);
+
+    /**
+     * 根据id修改数据
+     * - 修改指定字段
+     * - fields 指定字段 - 每个字段由英文或中文“,”分隔。格式："field1,field2,field3"。
+     *
+     * @param entity 数据实体
+     * @param fields 指定字段
+     * @return 影响行数
+     */
+    int update(T entity, String fields);
+
+    /**
+     * 根据id修改数据
+     * - 修改指定字段
+     *
+     * @param entity 数据实体
+     * @param fields 指定字段数组
+     * @return 影响行数
+     */
+    int update(T entity, String[] fields);
 
     /**
      * 分页查询

@@ -8,25 +8,26 @@ import com.jad.JADAdmin.common.model.JsonResult;
 import com.jad.JADAdmin.common.model.SearchLayer;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-
 /**
  * 表单 - 业务实现类
  */
 @Service
 public class FormTableServiceImpl extends BaseServiceImpl<FormTable, FormTableMapper> implements FormTableService {
-    @Resource
-    private JsonResult result;
 
     /**
      * 添加表单
      *
-     * @param formTable 表单信息
+     * @param entity 表单信息
      * @return 执行结果
      */
     @Override
-    public JsonResult create(FormTable formTable) {
-        return null;
+    public JsonResult create(FormTable entity) {
+        JsonResult result = new JsonResult("添加失败");
+        int row = super.insert(entity);
+        if (row > 0) {
+            result.setMsg("添加成功").setSuccess(true);
+        }
+        return result;
     }
 
     /**
@@ -37,7 +38,15 @@ public class FormTableServiceImpl extends BaseServiceImpl<FormTable, FormTableMa
      */
     @Override
     public JsonResult del(String id) {
-        return null;
+        JsonResult result = new JsonResult("删除失败");
+        if (!super.exist(id)) {
+            return result.setMsg("删除失败，数据不存在");
+        }
+        int row = super.delete(id);
+        if (row > 0) {
+            result.setMsg("删除成功").setSuccess(true);
+        }
+        return result;
     }
 
     /**
@@ -48,18 +57,35 @@ public class FormTableServiceImpl extends BaseServiceImpl<FormTable, FormTableMa
      */
     @Override
     public JsonResult delArray(String[] ids) {
-        return null;
+        JsonResult result = new JsonResult("批量删除失败");
+        if (ids == null || ids.length == 0) {
+            return result.setMsg("未选中删除数据！");
+        }
+        int row = super.deleteArray(ids);
+        if (row > 0) {
+            String msg = String.format("批量删除成功，共%d条，成功%d条，失败%d条", ids.length, row, ids.length - row);
+            result.setMsg(msg).setSuccess(true);
+        }
+        return result;
     }
 
     /**
      * 修改表单
      *
-     * @param formTable 表单信息
+     * @param entity 表单信息
      * @return 执行结果
      */
     @Override
-    public JsonResult edit(FormTable formTable) {
-        return null;
+    public JsonResult edit(FormTable entity) {
+        JsonResult result = new JsonResult("修改失败");
+        if (!super.exist(entity.getId())) {
+            return result.setMsg("修改失败，数据不存在");
+        }
+        int row = super.update(entity);
+        if (row > 0) {
+            result.setMsg("修改成功").setSuccess(true);
+        }
+        return result;
     }
 
     /**
@@ -81,7 +107,15 @@ public class FormTableServiceImpl extends BaseServiceImpl<FormTable, FormTableMa
      */
     @Override
     public JsonResult detail(String id) {
-        return null;
+        JsonResult result = new JsonResult("数据不存在");
+        if (!super.exist(id)) {
+            return result;
+        }
+        FormTable data = super.findKey(id);
+        if (data != null) {
+            result.setMsg("查询成功").setSuccess(true).setData(data);
+        }
+        return result;
     }
 
     /**
@@ -92,6 +126,12 @@ public class FormTableServiceImpl extends BaseServiceImpl<FormTable, FormTableMa
      */
     @Override
     public JsonResult existed(String id) {
-        return null;
+        JsonResult result = new JsonResult("数据不存在");
+        boolean exist = super.exist(id);
+        result.data = exist;
+        if (exist) {
+            result.setMsg("数据存在");
+        }
+        return result;
     }
 }
