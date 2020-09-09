@@ -1,4 +1,4 @@
-package com.jad.JADAdmin.Common.Enum;
+package com.jad.JADAdmin.common.enums;
 
 /**
  * 性别 枚举

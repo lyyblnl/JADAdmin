@@ -1,7 +1,7 @@
 package com.jad.JADAdmin.SystemForm.Mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jad.JADAdmin.SystemForm.Model.FormTable;
+import com.jad.JADAdmin.common.base.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

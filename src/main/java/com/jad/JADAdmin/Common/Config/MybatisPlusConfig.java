@@ -1,4 +1,4 @@
-package com.jad.JADAdmin.Common.Config;
+package com.jad.JADAdmin.common.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class MybatisPlusConfig {
     /**
      * 配置分页
+     *
      * @return
      */
     @Bean

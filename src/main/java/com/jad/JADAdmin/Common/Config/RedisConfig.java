@@ -1,4 +1,4 @@
-package com.jad.JADAdmin.Common.Config;
+package com.jad.JADAdmin.common.config;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -20,6 +20,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisConfig {
     /**
      * retemplate相关配置
+     *
      * @param factory
      * @return
      */

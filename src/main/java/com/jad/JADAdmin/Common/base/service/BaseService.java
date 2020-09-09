@@ -1,12 +1,13 @@
-package com.jad.JADAdmin.Common.Service.BaseService;
+package com.jad.JADAdmin.common.base.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.jad.JADAdmin.Common.Model.JsonResult;
-import com.jad.JADAdmin.Common.Model.SearchLayer;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.jad.JADAdmin.common.model.JsonResult;
+import com.jad.JADAdmin.common.model.SearchLayer;
 
 import java.util.List;
 
-public interface BaseServiceInterface<T> {
+public interface BaseService<T> extends IService<T> {
     /**
      * 添加数据
      *

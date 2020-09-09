@@ -1,9 +1,8 @@
 package com.jad.JADAdmin.SystemForm.Controller;
 
-import com.jad.JADAdmin.Common.Model.JsonResult;
-import com.jad.JADAdmin.Common.Model.SearchLayer;
-import com.jad.JADAdmin.SystemForm.Model.FormTable;
-import com.jad.JADAdmin.SystemForm.Service.FormTableService;
+import com.jad.JADAdmin.SystemForm.ServiceImpl.FormTableServiceImpl;
+import com.jad.JADAdmin.common.model.JsonResult;
+import com.jad.JADAdmin.common.model.SearchLayer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +16,11 @@ import javax.annotation.Resource;
 @RequestMapping("FormTable")
 public class FormTableController {
     @Resource
-    private FormTableService service;
+    private FormTableServiceImpl service;
 
-    @ApiOperation("分页获取用户接口")
+    @ApiOperation("分页获取表单接口")
     @GetMapping("getList")
-    public JsonResult getList(SearchLayer search){
+    public JsonResult getList(SearchLayer search) {
         return service.getList(search);
     }
 }

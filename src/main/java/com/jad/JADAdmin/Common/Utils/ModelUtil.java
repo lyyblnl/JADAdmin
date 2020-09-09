@@ -1,4 +1,4 @@
-package com.jad.JADAdmin.Common.Utils;
+package com.jad.JADAdmin.common.utils;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
 
@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 实体 工具类
  */
-public class EntityUtil {
+public class ModelUtil {
 
     /**
      * 给obj对象的字段设置值

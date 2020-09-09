@@ -1,4 +1,4 @@
-package com.jad.JADAdmin.Common.Config;
+package com.jad.JADAdmin.common.config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,6 +52,7 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build().apiInfo(apiInfo());
     }
+
     /**
      * 配置Swagger信息apiInfo
      */

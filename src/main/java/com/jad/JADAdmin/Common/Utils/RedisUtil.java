@@ -1,4 +1,4 @@
-package com.jad.JADAdmin.Common.Utils;
+package com.jad.JADAdmin.common.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundListOperations;
@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class RedisUtil {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
+
     public RedisUtil(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }

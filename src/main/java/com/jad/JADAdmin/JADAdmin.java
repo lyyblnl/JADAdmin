@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan({"com.jad.JADAdmin.*.Mapper"})
+@MapperScan({"com.jad.JADAdmin"})
 public class JADAdmin {
 
     public static void main(String[] args) {

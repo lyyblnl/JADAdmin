@@ -1,16 +1,7 @@
-package com.jad.JADAdmin.Common.Utils;
+package com.jad.JADAdmin.common.utils;
 
-import org.apache.commons.lang3.time.DateFormatUtils;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
 
 /**
  * 日期 工具类
@@ -27,6 +18,7 @@ public class DateUtil {
 
     /**
      * 格式化日期
+     *
      * @return
      */
     public static String nowFormat() {
@@ -35,6 +27,7 @@ public class DateUtil {
 
     /**
      * 格式化日期
+     *
      * @return
      */
     public static String nowFormat(String format) {

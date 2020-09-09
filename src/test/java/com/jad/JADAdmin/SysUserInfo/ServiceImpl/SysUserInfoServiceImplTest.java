@@ -1,9 +1,9 @@
 package com.jad.JADAdmin.SysUserInfo.ServiceImpl;
 
-import com.jad.JADAdmin.Common.Enum.Sex;
-import com.jad.JADAdmin.Common.Model.JsonResult;
-import com.jad.JADAdmin.Common.Model.SearchLayer;
-import com.jad.JADAdmin.Common.Utils.DateUtil;
+import com.jad.JADAdmin.common.enums.Sex;
+import com.jad.JADAdmin.common.model.JsonResult;
+import com.jad.JADAdmin.common.model.SearchLayer;
+import com.jad.JADAdmin.common.utils.DateUtil;
 import com.jad.JADAdmin.SysUserInfo.Model.SysUserInfo;
 import org.junit.Assert;
 import org.junit.Test;
@@ -42,7 +42,7 @@ public class SysUserInfoServiceImplTest {
         sysUserInfo.setId("aaa");
         JsonResult addResult = sysUserInfoService.create(sysUserInfo);
         Assert.assertTrue(addResult.success);
-        JsonResult delResult = sysUserInfoService.delete("aaa");
+        JsonResult delResult = sysUserInfoService.del("aaa");
         Assert.assertTrue(delResult.success);
         System.out.println(delResult);
     }
@@ -56,7 +56,7 @@ public class SysUserInfoServiceImplTest {
             JsonResult addResult = sysUserInfoService.create(sysUserInfo);
             Assert.assertTrue(addResult.success);
         }
-        JsonResult delResult = sysUserInfoService.deleteArray(ids);
+        JsonResult delResult = sysUserInfoService.delArray(ids);
         Assert.assertTrue(delResult.success);
         System.out.println(delResult);
     }
@@ -66,7 +66,7 @@ public class SysUserInfoServiceImplTest {
         SysUserInfo sysUserInfo = new SysUserInfo();
         sysUserInfo.setId("5b16b4f1051440fd9086bf7afe9a79c0");
         sysUserInfo.setNames("cxxwl96");
-        JsonResult result = sysUserInfoService.update(sysUserInfo);
+        JsonResult result = sysUserInfoService.edit(sysUserInfo);
         Assert.assertTrue(result.success);
         System.out.println(result);
     }
@@ -90,7 +90,7 @@ public class SysUserInfoServiceImplTest {
 
     @Test
     public void exist() {
-        JsonResult result = sysUserInfoService.exist("5b16b4f1051440fd9086bf7afe9a79c0");
+        JsonResult result = sysUserInfoService.existed("5b16b4f1051440fd9086bf7afe9a79c0");
         Assert.assertTrue(result.success);
         System.out.println(result);
     }
