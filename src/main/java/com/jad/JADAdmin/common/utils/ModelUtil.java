@@ -1,5 +1,7 @@
 package com.jad.JADAdmin.common.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.reflect.FieldUtils;
 
 import java.lang.reflect.Field;
@@ -52,5 +54,24 @@ public class ModelUtil {
             e.printStackTrace();
         }
         return flag;
+    }
+
+    /**
+     * 判断obj对象是否拥有某个属性
+     *
+     * @param obj   类对象
+     * @param field 字段
+     * @return 是否存在
+     */
+    public static Boolean isExistField(Object obj, String field) {
+        if (StringUtil.isNullOrEmpty(field)) {
+            return false;
+        }
+        Object o = JSON.toJSON(obj);
+        JSONObject jsonObj = new JSONObject();
+        if (o instanceof JSONObject) {
+            jsonObj = (JSONObject) o;
+        }
+        return jsonObj.containsKey(field);
     }
 }
