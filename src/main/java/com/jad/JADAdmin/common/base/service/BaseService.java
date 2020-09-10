@@ -47,20 +47,20 @@ public interface BaseService<T> extends IService<T> {
      * - fields 指定字段 - 每个字段由英文或中文“,”分隔。格式："field1,field2,field3"。
      *
      * @param entity 数据实体
-     * @param fields 指定字段
+     * @param fieldNames 指定字段
      * @return 影响行数
      */
-    int update(T entity, String fields);
+    int update(T entity, String fieldNames);
 
     /**
      * 根据id修改数据
      * - 修改指定字段
      *
      * @param entity 数据实体
-     * @param fields 指定字段数组
+     * @param fieldNames 指定字段数组
      * @return 影响行数
      */
-    int update(T entity, String[] fields);
+    int update(T entity, String[] fieldNames);
 
     /**
      * 分页查询

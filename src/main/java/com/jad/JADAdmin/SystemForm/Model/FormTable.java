@@ -28,9 +28,12 @@ public class FormTable extends BaseModel<FormTable> {
 
     @ApiModelProperty(value = "是否逻辑删除")
     @TableField(value = "isld")
-    private boolean isLD;
+    private Boolean isLD;
 
     @ApiModelProperty(value = "是否作为外键表")
     @TableField(value = "isfk")
-    private boolean isFk;
+    private Boolean isFk;
+
+    @ApiModelProperty(value = "备注")
+    private String remark;
 }

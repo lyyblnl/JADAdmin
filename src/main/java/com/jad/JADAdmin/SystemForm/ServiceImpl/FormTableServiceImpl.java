@@ -13,6 +13,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class FormTableServiceImpl extends BaseServiceImpl<FormTable, FormTableMapper> implements FormTableService {
+    /**
+     * 授权认证字段
+     */
+    private String authorizeField="databaseId,namespace,names,entityName,tableName,isLD,isFk,remark,enable";
 
     /**
      * 添加表单
@@ -81,7 +85,7 @@ public class FormTableServiceImpl extends BaseServiceImpl<FormTable, FormTableMa
         if (!super.exist(entity.getId())) {
             return result.setMsg("修改失败，数据不存在");
         }
-        int row = super.update(entity);
+        int row = super.update(entity, authorizeField);
         if (row > 0) {
             result.setMsg("修改成功").setSuccess(true);
         }

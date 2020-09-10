@@ -2,6 +2,7 @@ package com.jad.JADAdmin.common.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.jad.JADAdmin.common.exception.FieldNotExistException;
 import org.apache.commons.lang3.reflect.FieldUtils;
 
 import java.lang.reflect.Field;
@@ -13,21 +14,116 @@ import java.util.Map;
 public class ModelUtil {
 
     /**
-     * 给obj对象的属性设置值
+     * 判断obj对象是否拥有某个字段
+     *
+     * @param obj       对象
+     * @param fieldName 字段名
+     * @return 是否存在
+     */
+    public static Boolean isExistField(Object obj, String fieldName) {
+        if (StringUtil.isNullOrEmpty(fieldName)) {
+            return false;
+        }
+        Object o = JSON.toJSON(obj);
+        JSONObject jsonObj = new JSONObject();
+        if (o instanceof JSONObject) {
+            jsonObj = (JSONObject) o;
+        }
+        boolean contains = jsonObj.containsKey(fieldName);
+        return contains;
+    }
+
+    /**
+     * 获取obj对象某个字段
+     *
+     * @param obj       对象
+     * @param fieldName 字段名
+     * @return 字段
+     */
+    public static Field getField(Object obj, String fieldName) throws FieldNotExistException {
+        Class clazz = obj.getClass();
+        Field field = FieldUtils.getField(clazz, fieldName, true);
+        if (field == null) {
+            throw new FieldNotExistException(fieldName);
+        }
+        return field;
+    }
+
+    /**
+     * 获取obj对象某个字段类型
+     *
+     * @param obj       对象
+     * @param fieldName 字段名
+     * @return 字段类型 - com.jad.JADAdmin.common.constant.ClassType
+     */
+    public static String getFieldTypeName(Object obj, String fieldName) {
+        try {
+            Field field = getField(obj, fieldName);
+            String typeName = field.getType().getTypeName(); // 字段类型名
+            return typeName;
+        } catch (FieldNotExistException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 获取obj对象某个字段值
+     *
+     * @param obj       对象
+     * @param fieldName 字段名
+     * @return 字段值
+     */
+    public static Object getFieldValue(Object obj, String fieldName) {
+        try {
+            Field field = getField(obj, fieldName);
+            Object value = field.get(obj);
+            return value;
+        } catch (FieldNotExistException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 设置obj对象中fieldName字段的值
+     *
+     * @param obj       对象
+     * @param fieldName 字段名
+     * @param value     字段值
+     * @return 是否设置成功
+     */
+    public static boolean setFieldValue(Object obj, String fieldName, Object value) {
+        try {
+            Field field = getField(obj, fieldName);
+            field.set(obj, value);
+            return true;
+        } catch (FieldNotExistException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 给obj对象的字段设置值
      *
      * @param obj 对象
-     * @param kw  key-属性名，value-字段值
+     * @param kw  key-字段名，value-字段值
      * @return 是否全部设置成功
      */
     public static boolean setFieldsValue(Object obj, Map<String, Object> kw) {
         if (obj == null || kw == null || kw.size() == 0) {
             return false;
         }
-        // 所有需要设值的属性是否设值成功
+        // 所有需要设值的字段是否设值成功
         boolean flag = true;
         try {
             Class entityClass = obj.getClass();
-            // 得到所有属性，包括父类以及私有字段
+            // 得到所有字段，包括父类以及私有字段
             Field[] fields = FieldUtils.getAllFields(entityClass);
             // 遍历所需要设置的字段
             for (Map.Entry<String, Object> entry : kw.entrySet()) {
@@ -54,24 +150,5 @@ public class ModelUtil {
             e.printStackTrace();
         }
         return flag;
-    }
-
-    /**
-     * 判断obj对象是否拥有某个属性
-     *
-     * @param obj   类对象
-     * @param field 字段
-     * @return 是否存在
-     */
-    public static Boolean isExistField(Object obj, String field) {
-        if (StringUtil.isNullOrEmpty(field)) {
-            return false;
-        }
-        Object o = JSON.toJSON(obj);
-        JSONObject jsonObj = new JSONObject();
-        if (o instanceof JSONObject) {
-            jsonObj = (JSONObject) o;
-        }
-        return jsonObj.containsKey(field);
     }
 }

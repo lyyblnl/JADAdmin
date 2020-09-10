@@ -34,4 +34,14 @@ public class StringUtil {
         return str == null || (str.length() > 0 && str.replaceAll("\\s*", "").length() == 0);
     }
 
+    /**
+     * 去除字符串中所有空白字符
+     *
+     * @param str
+     * @return
+     */
+    public static String removeWhiteSpace(String str) {
+        return str.replaceAll("\\s*", "");
+    }
+
 }
